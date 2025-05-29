@@ -7,7 +7,10 @@ const Footer: React.FC = () => {
     <footer className="bg-stone-900 text-stone-100 pt-12 pb-6 mt-16">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo & Description */}
-        <div>
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
           <div className="flex items-center mb-4">
             <span className="text-2xl font-extrabold text-green-800">Longhor</span>
             <span className="text-2xl font-extrabold text-stone-100 ml-1">Voyage</span>
@@ -17,7 +20,11 @@ const Footer: React.FC = () => {
           </p>
         </div>
         {/* Liens rapides */}
-        <div>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
           <h4 className="font-bold mb-3 text-lg">Liens rapides</h4>
           <ul className="space-y-2 text-stone-300 text-sm">
             <li><Link to="/" className="hover:text-green-800 transition">Accueil</Link></li>
@@ -27,7 +34,11 @@ const Footer: React.FC = () => {
           </ul>
         </div>
         {/* Contact & Réseaux */}
-        <div>
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
           <h4 className="font-bold mb-3 text-lg">Contact</h4>
           <ul className="space-y-2 text-stone-300 text-sm">
             <li className="flex items-center"><Phone className="w-4 h-4 mr-2" /> +221 77 614 88 02</li>
@@ -41,7 +52,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="text-center text-xs text-stone-400 mt-8">
+      <div 
+        className="text-center text-xs text-stone-400 mt-8"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="600"
+      >
         © {new Date().getFullYear()} Longhor Voyage. Tous droits réservés.
       </div>
     </footer>

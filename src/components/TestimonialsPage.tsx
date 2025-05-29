@@ -45,7 +45,11 @@ const TestimonialsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-orange-50">
       <div className="container mx-auto py-16 px-6">
-        <div className="text-center mb-16">
+        <div 
+          className="text-center mb-16"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Voyageurs Témoignent</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Découvrez les expériences authentiques de nos voyageurs à travers l'Afrique.
@@ -54,10 +58,20 @@ const TestimonialsPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={testimonial.id} 
+              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay={index * 200}
+            >
               <div className="flex items-center space-x-4 mb-6">
-                <div className="w-16 h-16 rounded-full overflow-hidden">
+                <div 
+                  className="w-16 h-16 rounded-full overflow-hidden"
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 200 + 200}
+                >
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name} 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Calendar, Users, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface Package {
   id: number;
@@ -72,23 +73,39 @@ const WeeklyPackages: React.FC = () => {
   return (
     <section className="py-16 bg-stone-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl font-bold mb-4">Nos Excursions au Sénégal</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Découvrez le Sénégal authentique avec nos excursions sur mesure. 
             Que vous soyez en famille, entre amis ou en groupe, nous vous proposons 
             des visites en petit comité loin du tourisme de masse.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {packages.map((pkg) => (
-            <div key={pkg.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          {packages.map((pkg, index) => (
+            <motion.div 
+              key={pkg.id} 
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
               <div className="relative h-48">
-                <img 
+                <motion.img 
                   src={pkg.image} 
                   alt={pkg.title}
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -102,31 +119,39 @@ const WeeklyPackages: React.FC = () => {
 
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center text-gray-600">
+                  <motion.div 
+                    className="flex items-center text-gray-600"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <Calendar className="w-4 h-4 mr-1" />
                     <span className="text-sm">{pkg.duration}</span>
-                  </div>
-                  <div className="flex items-center text-gray-600">
+                  </motion.div>
+                  <motion.div 
+                    className="flex items-center text-gray-600"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <Users className="w-4 h-4 mr-1" />
                     <span className="text-sm">{pkg.groupSize}</span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div>
+                  <motion.div whileHover={{ scale: 1.05 }}>
                     <span className="text-sm text-gray-500">À partir de</span>
                     <div className="text-2xl font-bold text-green-800">{pkg.price}</div>
-                  </div>
-                  <a
+                  </motion.div>
+                  <motion.a
                     href={`https://wa.me/221776148802?text=Je suis intéressé(e) par l'excursion ${pkg.title}`}
                     className="flex items-center text-green-800 hover:text-green-900 transition-colors"
+                    whileHover={{ scale: 1.1, x: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <span className="mr-2">Réserver</span>
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </motion.a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

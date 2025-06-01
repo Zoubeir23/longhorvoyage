@@ -68,7 +68,7 @@ const DestinationSection: React.FC = () => {
   return (
     <section className="py-16 px-6 md:px-12 lg:px-20">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up" data-aos-duration="1000">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Nos Destinations
           </h2>
@@ -79,12 +79,24 @@ const DestinationSection: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((destination) => (
-            <DestinationCard key={destination.id} destination={destination} />
+          {destinations.map((destination, index) => (
+            <div 
+              key={destination.id} 
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              data-aos-duration="1000"
+            >
+              <DestinationCard destination={destination} />
+            </div>
           ))}
         </div>
         
-        <div className="mt-20 text-center">
+        <div 
+          className="mt-20 text-center" 
+          data-aos="fade-up" 
+          data-aos-duration="1000"
+          data-aos-offset="300"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Notre Engagement
           </h2>

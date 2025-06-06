@@ -12,4 +12,8 @@ export default defineConfig({
       include: [/lucide-react/, /node_modules/],
     },
   },
+  server: {
+    host: '0.0.0.0',
+    port: process.env.PORT ? parseInt(process.env.PORT) : 10000,
+  },
 });

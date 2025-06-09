@@ -15,15 +15,15 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat"></div>
       </motion.div>
 
-      <div className="relative container mx-auto px-4 h-full flex items-center">
-        <div className="max-w-2xl text-white">
+      <div className="relative container mx-auto px-4 sm:px-6 h-full flex items-center">
+        <div className="max-w-xs sm:max-w-md md:max-w-2xl text-white">
           <motion.h1 
-            className="text-5xl font-bold mb-6"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 leading-tight break-words"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            Découvrez le{' '}
+            Découvrez le<br className="block md:hidden" />
             <motion.span 
               className="text-green-200"
               initial={{ opacity: 0 }}
@@ -31,12 +31,12 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               Sénégal
-            </motion.span>{' '}
+            </motion.span><br className="block md:hidden" />
             avec Longhor Voyage
           </motion.h1>
           
           <motion.p 
-            className="text-xl mb-8 text-green-50"
+            className="text-base sm:text-lg md:text-xl mb-8 text-green-50"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -78,12 +78,12 @@ const Hero: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <span className="mr-4">Destinations populaires :</span>
-            <div className="flex space-x-4">
+            <span className="mr-4 shrink-0">Destinations populaires :</span>
+            <div className="flex space-x-4 overflow-x-auto scrollbar-thin scrollbar-thumb-green-800 scrollbar-track-transparent py-1 px-1 -mx-1 max-w-full">
               {['Dakar', 'Mbour', 'Saly', 'Somone'].map((destination, index) => (
                 <motion.button
                   key={destination}
-                  className="px-4 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                  className="px-4 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors whitespace-nowrap"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 + index * 0.1, duration: 0.4 }}
